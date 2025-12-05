@@ -39,9 +39,10 @@
       overflow-x: auto;
     }
   </style>
-  <!-- Mermaid.js CDN -->
-  <script type="module">
-    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+  <!-- Mermaid classic script (bez ES module) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
     mermaid.initialize({ startOnLoad: true, theme: "default" });
   </script>
 </head>
@@ -51,86 +52,86 @@
     Visual diagrams for token economy, app architecture, and customer journey.
   </p>
 
+  <!-- 1. Token Economy -->
   <div class="section">
     <h2>1. Token Economy / Token Lifecycle</h2>
     <p class="subtitle">High-level flow of how user actions become tokens, perks, tiers and retention.</p>
-    <pre class="mermaid">
+    <div class="mermaid">
 flowchart TD
-    A[User Actions (Purchases, Engagement, Tenure, Referrals)] --> B[Token Engine (Rules and Multipliers)]
+    A[User actions] --> B[Token engine]
 
-    B --> C[Tokens Earned (Liquid Value)]
-    B --> D[Perks Unlocked (Trade-in, Accessory Vouchers)]
-    B --> E[Tier Progression (Silver, Gold, Platinum)]
+    B --> C[Tokens earned]
+    B --> D[Perks unlocked]
+    B --> E[Tier progression]
 
-    C --> F[Wallet Balance (Visible Tokens)]
-    D --> G[Perk Cards in Wallet (Claim or Redeem)]
-    E --> H[Tier Dashboard (Status and Benefits)]
+    C --> F[Wallet balance]
+    D --> G[Perk cards]
+    E --> H[Tier dashboard]
 
-    F --> I[Telco Redemption (Bill, Devices, Add-ons, OTT)]
-    F --> J[Partner Redemption (Shopping, Travel, Fitness)]
-    F --> K[Gifting or Trading (Tokens and Perks)]
+    F --> I[Telco redemption]
+    F --> J[Partner redemption]
+    F --> K[Gifting or trading]
 
-    G --> I
-    G --> J
-
-    I --> L[Higher Retention (LTV, ARPU, Lower Churn)]
+    I --> L[Higher retention]
     J --> L
     K --> L
-    </pre>
+    </div>
   </div>
 
+  <!-- 2. App Architecture -->
   <div class="section">
     <h2>2. App Architecture – Benefit Wallet Module</h2>
     <p class="subtitle">How the wallet sits inside the app and which sections it contains.</p>
-    <pre class="mermaid">
+    <div class="mermaid">
 flowchart TD
-    A[App Home] --> B[Benefit Wallet]
+    A[App home] --> B[Benefit wallet]
 
-    B --> C[Balance (Token Count)]
+    B --> C[Balance]
     B --> D[Earn]
     B --> E[Redeem]
-    B --> F[My Perks]
-    B --> G[My Status]
+    B --> F[My perks]
+    B --> G[My status]
 
-    D --> D1[Purchases (Bill, Devices, Add-ons)]
-    D --> D2[Missions (Engagement Tasks)]
+    D --> D1[Purchases]
+    D --> D2[Missions]
     D --> D3[Referrals]
-    D --> D4[Tenure and ARPU Bonuses]
+    D --> D4[Tenure bonuses]
 
-    E --> E1[Telco Benefits (Discounts, Data, Roaming)]
-    E --> E2[Partner Offers (Gym, Travel, Shopping)]
-    E --> E3[Perks (Trade-in, Accessory Voucher)]
+    E --> E1[Telco benefits]
+    E --> E2[Partner offers]
+    E --> E3[Special perks]
 
-    F --> F1[Active Perks (Valid Now)]
-    F --> F2[Upcoming or Expiring Perks]
+    F --> F1[Active perks]
+    F --> F2[Expiring perks]
 
-    G --> G1[Tier Level (Silver, Gold, Platinum)]
-    G --> G2[Progress Bar (to Next Tier)]
-    G --> G3[Next Rewards (Upcoming Benefits)]
-    </pre>
+    G --> G1[Tier level]
+    G --> G2[Progress bar]
+    G --> G3[Next rewards]
+    </div>
   </div>
 
+  <!-- 3. Customer Journey -->
   <div class="section">
     <h2>3. Customer Journey – Earn, Spend, Check Status</h2>
     <p class="subtitle">Simple CJ for getting tokens, spending them and viewing status.</p>
-    <pre class="mermaid">
+    <div class="mermaid">
 flowchart LR
-    A[1. Open App] --> B[2. See Wallet Teaser (Balance + Earn More CTA)]
-    B --> C[3. Earn Tokens (Bill Payment, Device Purchase, Mission, Referral)]
-    C --> D[4. Tokens Added Instantly to Wallet]
+    A[Open app] --> B[See wallet teaser]
+    B --> C[Earn tokens]
+    C --> D[Tokens added to wallet]
 
-    D --> E[5. Open Wallet and Redeem]
-    E --> F[6. Choose: Telco Benefit, Partner Offer, or Perk Card]
-    F --> G[7. Confirm Redemption (One Tap)]
-    G --> H[8. Benefit Applied (Discount, Data, Voucher)]
+    D --> E[Open wallet and redeem]
+    E --> F[Choose benefit]
+    F --> G[Confirm redemption]
+    G --> H[Benefit applied]
 
-    D --> I[Check Status]
-    I --> J[My Status Screen (Tier and Progress)]
-    J --> K[See How to Reach Next Tier]
+    D --> I[Check status]
+    I --> J[See tier and progress]
+    J --> K[See how to reach next tier]
     K --> C
 
     H --> C
-    </pre>
+    </div>
   </div>
 
 </body>
