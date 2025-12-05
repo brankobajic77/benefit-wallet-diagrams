@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mermaid Test v3</title>
+  <title>Telco Benefit Wallet – Token Economy Diagrams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -12,9 +12,15 @@
       background: #f5f5f7;
       color: #111827;
     }
+    h1, h2 {
+      margin-bottom: 8px;
+    }
     h1 {
       font-size: 28px;
-      margin-bottom: 16px;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 20px;
     }
     .section {
       background: #ffffff;
@@ -23,25 +29,108 @@
       margin-bottom: 24px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
     .mermaid {
       margin-top: 16px;
+      overflow-x: auto;
     }
   </style>
 
-  <!-- Najjednostavnije moguće Mermaid učitavanje -->
+  <!-- Mermaid classic script (bez ES module) -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({ startOnLoad: true, theme: "default" });
   </script>
 </head>
 <body>
-  <h1>Mermaid Test v3</h1>
+  <h1>Telco Benefit Wallet – Token Economy</h1>
+  <p class="subtitle">
+    Visual diagrams for token economy, app architecture, and customer journey.
+  </p>
 
+  <!-- 1. Token Economy -->
   <div class="section">
-    <p>Minimalan dijagram (ako ovo proradi, sve je ok sa Mermaid / Pages setupom):</p>
+    <h2>1. Token Economy / Token Lifecycle</h2>
+    <p class="subtitle">High-level flow of how user actions become tokens, perks, tiers and retention.</p>
     <div class="mermaid">
-graph TD;
-    A[Start] --> B[Works];
+flowchart TD
+    A[User actions] --> B[Token engine]
+
+    B --> C[Tokens earned]
+    B --> D[Perks unlocked]
+    B --> E[Tier progression]
+
+    C --> F[Wallet balance]
+    D --> G[Perk cards]
+    E --> H[Tier dashboard]
+
+    F --> I[Telco redemption]
+    F --> J[Partner redemption]
+    F --> K[Gifting or trading]
+
+    I --> L[Higher retention]
+    J --> L
+    K --> L
+    </div>
+  </div>
+
+  <!-- 2. App Architecture -->
+  <div class="section">
+    <h2>2. App Architecture – Benefit Wallet Module</h2>
+    <p class="subtitle">How the wallet sits inside the app and which sections it contains.</p>
+    <div class="mermaid">
+flowchart TD
+    A[App home] --> B[Benefit wallet]
+
+    B --> C[Balance]
+    B --> D[Earn]
+    B --> E[Redeem]
+    B --> F[My perks]
+    B --> G[My status]
+
+    D --> D1[Purchases]
+    D --> D2[Missions]
+    D --> D3[Referrals]
+    D --> D4[Tenure bonuses]
+
+    E --> E1[Telco benefits]
+    E --> E2[Partner offers]
+    E --> E3[Special perks]
+
+    F --> F1[Active perks]
+    F --> F2[Expiring perks]
+
+    G --> G1[Tier level]
+    G --> G2[Progress bar]
+    G --> G3[Next rewards]
+    </div>
+  </div>
+
+  <!-- 3. Customer Journey -->
+  <div class="section">
+    <h2>3. Customer Journey – Earn, Spend, Check Status</h2>
+    <p class="subtitle">Simple CJ for getting tokens, spending them and viewing status.</p>
+    <div class="mermaid">
+flowchart LR
+    A[Open app] --> B[See wallet teaser]
+    B --> C[Earn tokens]
+    C --> D[Tokens added to wallet]
+
+    D --> E[Open wallet and redeem]
+    E --> F[Choose benefit]
+    F --> G[Confirm redemption]
+    G --> H[Benefit applied]
+
+    D --> I[Check status]
+    I --> J[See tier and progress]
+    J --> K[See how to reach next tier]
+    K --> C
+
+    H --> C
     </div>
   </div>
 
