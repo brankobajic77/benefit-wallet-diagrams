@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Token Economy – Operating Model & Requirements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #f5f5f7;
+      color: #111827;
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .nav-links {
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .nav-links a {
+      margin-right: 12px;
+      font-weight: 500;
+    }
+    .toc {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .toc ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      color: #374151;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 6px;
+    }
+    ul {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    li {
+      margin-bottom: 3px;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      background: #f3f4f6;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+    .pill-row {
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 11px;
+      margin: 2px 4px 2px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-links">
+    <a href="index.html">← Back to overview</a>
+    <a href="token.html">Token diagram</a>
+    <a href="wallet.html">Wallet architecture</a>
+    <a href="journey.html">Customer journey</a>
+  </div>
+
+  <h1>Token Economy – Operating Model & Requirements</h1>
+  <p class="subtitle">
+    Functional and conceptual requirements for how the token economy lives inside the telco Benefit Wallet.
+  </p>
+
+  <div class="section">
+    <span class="badge">Contents</span>
+    <div class="toc">
+      <ul>
+        <li><a href="#principles">1. Core principles</a></li>
+        <li><a href="#structure">2. Token structure and transaction types</a></li>
+        <li><a href="#earning">3. Earning logic – direct vs claimable</a></li>
+        <li><a href="#valuation">4. Token valuation model</a></li>
+        <li><a href="#lifecycle">5. Benefit lifecycle</a></li>
+        <li><a href="#governance">6. Governance & risk control</a></li>
+        <li><a href="#roadmap">7. Long-term evolution</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="principles" class="section">
+    <h2>1. Core principles</h2>
+    <p>
+      The token economy turns every interaction into value and uses the Benefit Wallet as a single place where
+      customers can see, understand and use their rewards.
+    </p>
+    <ul>
+      <li>One <strong>universal token</strong> powers all reward mechanics.</li>
+      <li>Every interaction can generate value: monetary, behavioural, or loyalty-based.</li>
+      <li>The wallet acts as a <strong>persistent balance</strong> plus a library of perks and benefits.</li>
+      <li>Benefits can be:
+        <ul>
+          <li><strong>Direct</strong> – earned as tokens immediately.</li>
+          <li><strong>Claimable</strong> – unlocked as a benefit card that must be claimed.</li>
+        </ul>
+      </li>
+      <li>Each benefit has a clear lifecycle: created → visible → claimed → redeemed → expired.</li>
+    </ul>
+  </div>
+
+  <div id="structure" class="section">
+    <h2>2. Token structure and transaction types</h2>
+
+    <h3>2.1 Token types</h3>
+    <p class="pill-row">
+      <span class="pill">Standard tokens</span>
+      <span class="pill">Bonus tokens</span>
+      <span class="pill">Locked tokens</span>
+    </p>
+    <ul>
+      <li><strong>Standard tokens</strong> – core currency, used for most redemptions.</li>
+      <li><strong>Bonus tokens</strong> – campaign or seasonal multipliers with shorter validity.</li>
+      <li><strong>Locked tokens</strong> – count for tier progression but cannot be spent.</li>
+    </ul>
+
+    <h3>2.2 Transaction types – earning</h3>
+    <ul>
+      <li><strong>Billing:</strong> bill payment, autopay enrollment, on-time payment streaks.</li>
+      <li><strong>Top-ups:</strong> prepaid recharges and bundles.</li>
+      <li><strong>Devices:</strong> new device, upgrades, trade-in deals.</li>
+      <li><strong>Accessories:</strong> single or bundled purchases.</li>
+      <li><strong>Add-ons:</strong> roaming passes, data add-ons, cloud storage.</li>
+      <li><strong>Tenure & value:</strong> months in network, ARPU stability, multi-service bundles.</li>
+      <li><strong>Engagement:</strong> app missions, profile completion, surveys, digital self-care flows.</li>
+      <li><strong>Referrals:</strong> invited customers who activate and pay.</li>
+    </ul>
+
+    <h3>2.3 Transaction types – spending</h3>
+    <ul>
+      <li><strong>Telco benefits:</strong> bill discounts, data, roaming, OTT, cloud, insurance, device subsidies.</li>
+      <li><strong>Partner benefits:</strong> gyms, travel, retail, dining, entertainment.</li>
+      <li><strong>Perks:</strong> trade-in boosts, accessory vouchers, extended warranty, priority support.</li>
+      <li><strong>Gifting:</strong> send tokens or specific perks to other customers.</li>
+    </ul>
+  </div>
+
+  <div id="earning" class="section">
+    <h2>3. Earning logic – direct vs claimable</h2>
+
+    <h3>3.1 Direct acquisition (immediate tokens)</h3>
+    <p>Used for simple, frequent and emotionally relevant actions.</p>
+    <ul>
+      <li>Bill payment (especially via digital channels).</li>
+      <li>Prepaid top-ups, add-on purchases and roaming passes.</li>
+      <li>Standard device and accessory purchases.</li>
+      <li>Daily / weekly missions and app engagement.</li>
+      <li>Referrals that lead to activation and first payment.</li>
+    </ul>
+    <p>
+      <strong>Requirement:</strong> every such action must produce a deterministic token amount based on a
+      configured rule set (percentage, fixed value, or tier-based multiplier).
+    </p>
+
+    <h3>3.2 Claimable benefits (conditional perks)</h3>
+    <p>
+      Used when we want to control cost exposure, encourage repeat behaviour and drive wallet usage.
+    </p>
+    <ul>
+      <li>Example: buy a specific device → unlock a future trade-in boost.</li>
+      <li>Example: buy 3 accessories within 9 months → unlock -20% accessory voucher.</li>
+      <li>Example: take device insurance → unlock one-time screen repair voucher.</li>
+    </ul>
+    <p>
+      <strong>Requirement:</strong> system must be able to create a “benefit card” in the wallet with:
+    </p>
+    <ul>
+      <li>Eligibility rule (what had to happen).</li>
+      <li>Activation rule (what happens when user claims it).</li>
+      <li>Validity period (from–to dates).</li>
+      <li>Links to specific products / journeys (e.g. device checkout).</li>
+    </ul>
+  </div>
+
+  <div id="valuation" class="section">
+    <h2>4. Token valuation model</h2>
+    <p>
+      Tokens must be easy to understand for customers and easy to manage for Finance.
+    </p>
+    <ul>
+      <li>Define a base internal reference: e.g. <code>100 tokens ≈ 1 BGN value</code>.</li>
+      <li>Define earn rates by category:
+        <ul>
+          <li>Bill payment: 1–3% “back” in tokens.</li>
+          <li>Device purchase: higher multiplier (e.g. 3–5%).</li>
+          <li>Add-ons: fixed token packages or boosters.</li>
+          <li>Referrals: flat reward (e.g. 500–1000 tokens).</li>
+          <li>Missions: small micro-rewards (5–20 tokens).</li>
+        </ul>
+      </li>
+      <li>Define burn rules:
+        <ul>
+          <li>Telco benefits: fixed token prices for key items.</li>
+          <li>Partner benefits: negotiated ranges and caps.</li>
+          <li>Device discounts: capped token usage per transaction and per month.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="lifecycle" class="section">
+    <h2>5. Benefit lifecycle</h2>
+
+    <h3>5.1 Stages</h3>
+    <ul>
+      <li><strong>Creation:</strong> triggered by a transaction, campaign or system rule.</li>
+      <li><strong>Notification:</strong> push, in-app, or wallet badge.</li>
+      <li><strong>Visibility:</strong> appears in wallet under “Available”, “Upcoming” or “Expiring”.</li>
+      <li><strong>Claim:</strong> user actively claims, moving benefit into “Active” state.</li>
+      <li><strong>Redemption:</strong> applied during a purchase, bill, or add-on flow.</li>
+      <li><strong>Expiration:</strong> unused benefits expire, with optional reminder before expiry.</li>
+    </ul>
+
+    <h3>5.2 Required attributes per benefit</h3>
+    <ul>
+      <li>Unique ID and type (token redemption, voucher, perk, partner offer).</li>
+      <li>Source (which rule, campaign, or transaction generated it).</li>
+      <li>Value definition (fixed discount, % discount, free item, extra data, etc.).</li>
+      <li>Token cost (if any) and caps.</li>
+      <li>Start and end date, grace period if applicable.</li>
+      <li>Eligibility segment (all base, specific plans, specific devices, etc.).</li>
+    </ul>
+  </div>
+
+  <div id="governance" class="section">
+    <h2>6. Governance & risk control</h2>
+    <ul>
+      <li><strong>Token budget:</strong> quarterly cap on total tokens issued per category.</li>
+      <li><strong>Burn controls:</strong> limits on monthly token redemption per user and per product.</li>
+      <li><strong>Anti-gaming:</strong> caps on mission frequency, referral validation, fraud checks.</li>
+      <li><strong>Expiry policy:</strong>
+        <ul>
+          <li>Standard tokens: 12–24 months.</li>
+          <li>Bonus tokens: 30–90 days.</li>
+          <li>Claimable benefits: 14–60 days.</li>
+        </ul>
+      </li>
+      <li><strong>Analytics:</strong> KPIs (engagement, redemption rate, incremental revenue, retention lift).</li>
+    </ul>
+  </div>
+
+  <div id="roadmap" class="section">
+    <h2>7. Long-term evolution model</h2>
+    <ul>
+      <li><strong>Phase 1 – Closed telco ecosystem:</strong> tokens used only for telco benefits.</li>
+      <li><strong>Phase 2 – Partner marketplace:</strong> redemption extended to external brands.</li>
+      <li><strong>Phase 3 – Cross-customer flows:</strong> gifting, trading, family / household pooling.</li>
+      <li><strong>Phase 4 – Semi-open asset:</strong> optional evolution into a broader digital asset model.</li>
+    </ul>
+    <p class="subtitle">
+      This page should be used as a living requirements document alongside the Token, Wallet and Journey diagrams.
+    </p>
+  </div>
+
+</body>
+</html>
