@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Telco Benefit Wallet – Token Economy Diagrams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 24px;
+      background: #f5f5f7;
+      color: #111827;
+    }
+    h1, h2 {
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 20px;
+    }
+    .section {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .mermaid {
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+  </style>
+  <!-- Mermaid.js CDN -->
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "default" });
+  </script>
+</head>
+<body>
+  <h1>Telco Benefit Wallet – Token Economy</h1>
+  <p class="subtitle">
+    Visual diagrams for token economy, app architecture, and customer journey.
+  </p>
+
+  <div class="section">
+    <h2>1. Token Economy / Token Lifecycle</h2>
+    <p class="subtitle">High-level flow of how user actions become tokens, perks, tiers and retention.</p>
+    <pre class="mermaid">
+flowchart TD
+    A[User Actions<br/>(Purchases, Engagement, Tenure, Referrals)] --> B[Token Engine<br/>(Rules &amp; Multipliers)]
+
+    B --> C[Tokens Earned<br/>(Liquid Value)]
+    B --> D[Perks Unlocked<br/>(Trade-in, Accessory Vouchers)]
+    B --> E[Tier Progression<br/>(Silver / Gold / Platinum)]
+
+    C --> F[Wallet Balance<br/>(Visible Tokens)]
+    D --> G[Perk Cards in Wallet<br/>(Claim / Redeem)]
+    E --> H[Tier Dashboard<br/>(Status &amp; Benefits)]
+
+    F --> I[Telco Redemption<br/>(Bill, Devices, Add-ons, OTT)]
+    F --> J[Partner Redemption<br/>(Shopping, Travel, Fitness)]
+    F --> K[Gifting / Trading<br/>(Tokens &amp; Perks)]
+
+    G --> I
+    G --> J
+
+    I --> L[Higher Retention<br/>(LTV, ARPU, Lower Churn)]
+    J --> L
+    K --> L
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>2. App Architecture – Benefit Wallet Module</h2>
+    <p class="subtitle">How the wallet sits inside the app and which sections it contains.</p>
+    <pre class="mermaid">
+flowchart TD
+    A[App Home] --> B[Benefit Wallet]
+
+    B --> C[Balance<br/>(Token Count)]
+    B --> D[Earn]
+    B --> E[Redeem]
+    B --> F[My Perks]
+    B --> G[My Status]
+
+    D --> D1[Purchases<br/>(Bill, Devices, Add-ons)]
+    D --> D2[Missions<br/>(Engagement Tasks)]
+    D --> D3[Referrals]
+    D --> D4[Tenure &amp; ARPU Bonuses]
+
+    E --> E1[Telco Benefits<br/>(Discounts, Data, Roaming)]
+    E --> E2[Partner Offers<br/>(Gym, Travel, Shopping)]
+    E --> E3[Perks<br/>(Trade-in, Accessory Voucher)]
+
+    F --> F1[Active Perks<br/>(Valid Now)]
+    F --> F2[Upcoming / Expiring Perks]
+
+    G --> G1[Tier Level<br/>(Silver / Gold / Platinum)]
+    G --> G2[Progress Bar<br/>(% to Next Tier)]
+    G --> G3[Next Rewards<br/>(What You Unlock Next)]
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>3. Customer Journey – Earn, Spend, Check Status</h2>
+    <p class="subtitle">Simple CJ for getting tokens, spending them and viewing status.</p>
+    <pre class="mermaid">
+flowchart LR
+    A[1. Open App] --> B[2. See Wallet Teaser<br/>(Balance + CTA “Earn More”)]
+    B --> C[3. Earn Tokens<br/>(Pay bill, Buy device/add-on,<br/>Complete mission, Invite friend)]
+    C --> D[4. Tokens Instantly Added<br/>to Wallet Balance]
+
+    D --> E[5. Open Wallet → Redeem]
+    E --> F[6. Choose:<br/>• Telco Benefit<br/>• Partner Offer<br/>• Perk Card]
+    F --> G[7. Confirm Redemption<br/>(One Tap)]
+    G --> H[8. Benefit Applied<br/>(Discount / Add-on / Voucher)]
+
+    D --> I[Check Status]
+    I --> J[My Status Screen<br/>(Tier + Progress Bar)]
+    J --> K[See “How to Reach Next Tier”<br/>(Required Actions)]
+    K --> C
+
+    H --> C
+    </pre>
+  </div>
+
+</body>
+</html>
