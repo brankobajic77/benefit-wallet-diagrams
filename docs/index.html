@@ -56,24 +56,24 @@
     <p class="subtitle">High-level flow of how user actions become tokens, perks, tiers and retention.</p>
     <pre class="mermaid">
 flowchart TD
-    A[User Actions<br/>(Purchases, Engagement, Tenure, Referrals)] --> B[Token Engine<br/>(Rules &amp; Multipliers)]
+    A[User Actions (Purchases, Engagement, Tenure, Referrals)] --> B[Token Engine (Rules and Multipliers)]
 
-    B --> C[Tokens Earned<br/>(Liquid Value)]
-    B --> D[Perks Unlocked<br/>(Trade-in, Accessory Vouchers)]
-    B --> E[Tier Progression<br/>(Silver / Gold / Platinum)]
+    B --> C[Tokens Earned (Liquid Value)]
+    B --> D[Perks Unlocked (Trade-in, Accessory Vouchers)]
+    B --> E[Tier Progression (Silver, Gold, Platinum)]
 
-    C --> F[Wallet Balance<br/>(Visible Tokens)]
-    D --> G[Perk Cards in Wallet<br/>(Claim / Redeem)]
-    E --> H[Tier Dashboard<br/>(Status &amp; Benefits)]
+    C --> F[Wallet Balance (Visible Tokens)]
+    D --> G[Perk Cards in Wallet (Claim or Redeem)]
+    E --> H[Tier Dashboard (Status and Benefits)]
 
-    F --> I[Telco Redemption<br/>(Bill, Devices, Add-ons, OTT)]
-    F --> J[Partner Redemption<br/>(Shopping, Travel, Fitness)]
-    F --> K[Gifting / Trading<br/>(Tokens &amp; Perks)]
+    F --> I[Telco Redemption (Bill, Devices, Add-ons, OTT)]
+    F --> J[Partner Redemption (Shopping, Travel, Fitness)]
+    F --> K[Gifting or Trading (Tokens and Perks)]
 
     G --> I
     G --> J
 
-    I --> L[Higher Retention<br/>(LTV, ARPU, Lower Churn)]
+    I --> L[Higher Retention (LTV, ARPU, Lower Churn)]
     J --> L
     K --> L
     </pre>
@@ -86,27 +86,27 @@ flowchart TD
 flowchart TD
     A[App Home] --> B[Benefit Wallet]
 
-    B --> C[Balance<br/>(Token Count)]
+    B --> C[Balance (Token Count)]
     B --> D[Earn]
     B --> E[Redeem]
     B --> F[My Perks]
     B --> G[My Status]
 
-    D --> D1[Purchases<br/>(Bill, Devices, Add-ons)]
-    D --> D2[Missions<br/>(Engagement Tasks)]
+    D --> D1[Purchases (Bill, Devices, Add-ons)]
+    D --> D2[Missions (Engagement Tasks)]
     D --> D3[Referrals]
-    D --> D4[Tenure &amp; ARPU Bonuses]
+    D --> D4[Tenure and ARPU Bonuses]
 
-    E --> E1[Telco Benefits<br/>(Discounts, Data, Roaming)]
-    E --> E2[Partner Offers<br/>(Gym, Travel, Shopping)]
-    E --> E3[Perks<br/>(Trade-in, Accessory Voucher)]
+    E --> E1[Telco Benefits (Discounts, Data, Roaming)]
+    E --> E2[Partner Offers (Gym, Travel, Shopping)]
+    E --> E3[Perks (Trade-in, Accessory Voucher)]
 
-    F --> F1[Active Perks<br/>(Valid Now)]
-    F --> F2[Upcoming / Expiring Perks]
+    F --> F1[Active Perks (Valid Now)]
+    F --> F2[Upcoming or Expiring Perks]
 
-    G --> G1[Tier Level<br/>(Silver / Gold / Platinum)]
-    G --> G2[Progress Bar<br/>(% to Next Tier)]
-    G --> G3[Next Rewards<br/>(What You Unlock Next)]
+    G --> G1[Tier Level (Silver, Gold, Platinum)]
+    G --> G2[Progress Bar (to Next Tier)]
+    G --> G3[Next Rewards (Upcoming Benefits)]
     </pre>
   </div>
 
@@ -115,18 +115,18 @@ flowchart TD
     <p class="subtitle">Simple CJ for getting tokens, spending them and viewing status.</p>
     <pre class="mermaid">
 flowchart LR
-    A[1. Open App] --> B[2. See Wallet Teaser<br/>(Balance + CTA “Earn More”)]
-    B --> C[3. Earn Tokens<br/>(Pay bill, Buy device/add-on,<br/>Complete mission, Invite friend)]
-    C --> D[4. Tokens Instantly Added<br/>to Wallet Balance]
+    A[1. Open App] --> B[2. See Wallet Teaser (Balance + Earn More CTA)]
+    B --> C[3. Earn Tokens (Bill Payment, Device Purchase, Mission, Referral)]
+    C --> D[4. Tokens Added Instantly to Wallet]
 
-    D --> E[5. Open Wallet → Redeem]
-    E --> F[6. Choose:<br/>• Telco Benefit<br/>• Partner Offer<br/>• Perk Card]
-    F --> G[7. Confirm Redemption<br/>(One Tap)]
-    G --> H[8. Benefit Applied<br/>(Discount / Add-on / Voucher)]
+    D --> E[5. Open Wallet and Redeem]
+    E --> F[6. Choose: Telco Benefit, Partner Offer, or Perk Card]
+    F --> G[7. Confirm Redemption (One Tap)]
+    G --> H[8. Benefit Applied (Discount, Data, Voucher)]
 
     D --> I[Check Status]
-    I --> J[My Status Screen<br/>(Tier + Progress Bar)]
-    J --> K[See “How to Reach Next Tier”<br/>(Required Actions)]
+    I --> J[My Status Screen (Tier and Progress)]
+    J --> K[See How to Reach Next Tier]
     K --> C
 
     H --> C
