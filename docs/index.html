@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Telco Benefit Wallet – Token Economy Diagrams</title>
+  <title>Telco Benefit Wallet – Diagrams Overview</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -19,14 +19,14 @@
       font-size: 28px;
     }
     h2 {
-      margin-top: 32px;
       font-size: 20px;
+      margin-top: 24px;
     }
-    .section {
+    .card {
       background: #ffffff;
       border-radius: 12px;
       padding: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
     .subtitle {
@@ -34,104 +34,44 @@
       margin-bottom: 16px;
       font-size: 14px;
     }
-    .mermaid {
-      margin-top: 16px;
-      overflow-x: auto;
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
-
-  <!-- Mermaid classic script (bez ES module) -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true, theme: "default" });
-  </script>
 </head>
 <body>
-  <h1>Telco Benefit Wallet – Token Economy</h1>
+  <h1>Telco Benefit Wallet – Diagram Library</h1>
   <p class="subtitle">
-    Visual diagrams for token economy, app architecture, and customer journey.
+    Select a view to explore the token economy, wallet architecture, or customer journey.
   </p>
 
-  <!-- 1. Token Economy -->
-  <div class="section">
+  <div class="card">
     <h2>1. Token Economy / Token Lifecycle</h2>
-    <p class="subtitle">High-level flow of how user actions become tokens, perks, tiers and retention.</p>
-    <div class="mermaid">
-flowchart TD
-    A[User actions] --> B[Token engine]
-
-    B --> C[Tokens earned]
-    B --> D[Perks unlocked]
-    B --> E[Tier progression]
-
-    C --> F[Wallet balance]
-    D --> G[Perk cards]
-    E --> H[Tier dashboard]
-
-    F --> I[Telco redemption]
-    F --> J[Partner redemption]
-    F --> K[Gifting or trading]
-
-    I --> L[Higher retention]
-    J --> L
-    K --> L
-    </div>
+    <p class="subtitle">
+      High-level flow of how user actions turn into tokens, perks, tiers and retention.
+    </p>
+    <a href="token.html">Open Token Economy diagram →</a>
   </div>
 
-  <!-- 2. App Architecture -->
-  <div class="section">
+  <div class="card">
     <h2>2. App Architecture – Benefit Wallet Module</h2>
-    <p class="subtitle">How the wallet sits inside the app and which sections it contains.</p>
-    <div class="mermaid">
-flowchart TD
-    A[App home] --> B[Benefit wallet]
-
-    B --> C[Balance]
-    B --> D[Earn]
-    B --> E[Redeem]
-    B --> F[My perks]
-    B --> G[My status]
-
-    D --> D1[Purchases]
-    D --> D2[Missions]
-    D --> D3[Referrals]
-    D --> D4[Tenure bonuses]
-
-    E --> E1[Telco benefits]
-    E --> E2[Partner offers]
-    E --> E3[Special perks]
-
-    F --> F1[Active perks]
-    F --> F2[Expiring perks]
-
-    G --> G1[Tier level]
-    G --> G2[Progress bar]
-    G --> G3[Next rewards]
-    </div>
+    <p class="subtitle">
+      How the wallet sits inside the app and which sections and flows it contains.
+    </p>
+    <a href="wallet.html">Open Wallet Architecture diagram →</a>
   </div>
 
-  <!-- 3. Customer Journey -->
-  <div class="section">
+  <div class="card">
     <h2>3. Customer Journey – Earn, Spend, Check Status</h2>
-    <p class="subtitle">Simple CJ for getting tokens, spending them and viewing status.</p>
-    <div class="mermaid">
-flowchart LR
-    A[Open app] --> B[See wallet teaser]
-    B --> C[Earn tokens]
-    C --> D[Tokens added to wallet]
-
-    D --> E[Open wallet and redeem]
-    E --> F[Choose benefit]
-    F --> G[Confirm redemption]
-    G --> H[Benefit applied]
-
-    D --> I[Check status]
-    I --> J[See tier and progress]
-    J --> K[See how to reach next tier]
-    K --> C
-
-    H --> C
-    </div>
+    <p class="subtitle">
+      End-to-end customer journey for getting tokens, spending them and tracking status.
+    </p>
+    <a href="journey.html">Open Customer Journey diagram →</a>
   </div>
 
 </body>
